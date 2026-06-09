@@ -35,7 +35,7 @@ services:
       - debug-api
       - pg-only
       - sso
-    image: docker.io/library/postgres:16
+    image: docker.io/library/postgres:18
     environment:
       - PGUSER=${BH_POSTGRES_USER:-bloodhound}
       - POSTGRES_USER=${BH_POSTGRES_USER:-bloodhound}
@@ -44,7 +44,7 @@ services:
     ports:
       - ${BH_POSTGRES_PORT:-127.0.0.1:5432}:5432
     volumes:
-      - ${BH_POSTGRES_VOLUME:-postgres-data}:/var/lib/postgresql/data
+      - ${BH_POSTGRES_VOLUME:-postgres-data}:/var/lib/postgresql
     healthcheck:
       test:
         [
